@@ -2,7 +2,9 @@ REM
 REM create an amazing maze
 REM and an animated solution ...
 REM
-REM by blackborn66
+REM algorithms are from rosetta code bbc basic example
+REM
+REM for AQB by blackborn66
 REM https://github.com/blackborn66/aqb-tests-demos
 REM
 
