@@ -7,26 +7,32 @@ REM
 
 OPTION EXPLICIT
 
-SCREEN 1, 320, 200, 2, 0, "Conways Game of Life"
-WINDOW 1, "Conways Game of Life"
-
-LOCATE 12, 2
-PRINT "Press mouse button to quit"
-
-SUB doQuit
+SUB doQuit (BYVAL wid AS INTEGER, BYVAL ud AS VOID PTR)
     SYSTEM
 END SUB
 
-ON MOUSE CALL doQuit
-MOUSE ON
+SCREEN 1, 320, 200, 2, 0, "Conways Game of Life"
+WINDOW 1, "Conways Game of Life"
+ON WINDOW CLOSE CALL 1, doQuit
+
+'LOCATE 12, 2
+'PRINT "Press mouse button to quit"
+
+
+'ON MOUSE CALL doQuit, NULL
+'MOUSE ON
 
 RANDOMIZE Fix(Timer()) * 1000
 
 ' confige the size of the playground
 CONST AS integer w = 50
 CONST AS integer h = 50
+CONST AS integer scalex = 2
+CONST AS integer scaley = 2
+CONST AS integer offx = 20
+CONST AS integer offy = 15
 
-DIM AS BITMAP_t PTR bm = BITMAP(w, h, 2)
+DIM AS BITMAP_t PTR bm = BITMAP(w*scalex, h*scaley, 2)
 
 ' two arrays to create the next step in life
 DIM AS integer gol(2, w+2, h+2)
@@ -79,7 +85,10 @@ DO
                 END IF
             END IF                
             gol(target, x, y) = N
-            pset (x, y), N
+            'pset (x-1, y-1), N
+            DIM AS INTEGER px=(x-1)*scalex
+            DIM AS INTEGER py=(y-1)*scaley
+            LINE (px, py)-(px+scalex-1, py+scaley-1),N,BF
         NEXT
         ' copy the border cells for easy calculation
         gol(target, x, 0) = gol(target, x, h)
@@ -97,7 +106,7 @@ DO
     gol(target, 0, h + 1) = gol(target, w, 1)
     
     WINDOW OUTPUT 1
-    PUT (10, 10), bm
+    PUT (offx, offy), bm
     sleep FOR 0.02 : ' needed to notice the mouse click
 LOOP
 
