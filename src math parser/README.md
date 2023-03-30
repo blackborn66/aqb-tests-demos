@@ -43,3 +43,5 @@ there you can see if it's a problem with the expression / or in the code ;)<br>
 ## TODO:
  * change to OOP
  * maybe use it as lib or module
+ * remove debug output
+ 
