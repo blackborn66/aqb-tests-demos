@@ -2,7 +2,7 @@ REM
 REM Play the Chaos Game to generate interesting shapes using a semi-random process 
 REM like the Sierpinski Triangle
 REM
-REM algorithms are from rosetta code freeBASIC example
+REM from rosetta code freeBASIC example
 REM
 REM for AQB by blackborn66
 REM https://github.com/blackborn66/aqb-tests-demos
