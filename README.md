@@ -7,6 +7,7 @@ this repo here is a playground - ideas, comments and corrections are very welcom
 
 the sources are tested with the latest version of aqb 0.8.2
 on a A1200 like environment in WinUAE.
+(last time I only tested with the version 0.9.0 - work in progress)
 
 you can use all the stuff as you want - it's free in any sense!
 
